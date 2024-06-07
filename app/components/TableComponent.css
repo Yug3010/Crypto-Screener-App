@@ -1,0 +1,102 @@
+.custom-input {
+    color: black; /* Adjust color as needed */
+}
+/* Container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #ffffff; /* White background for the container */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align content horizontally */
+  }
+  
+  /* Custom input styling */
+  .custom-input {
+    transition: all 0.3s ease;
+    width: 100%; /* Full width input */
+    max-width: 400px; /* Limit input width for aesthetic reasons */
+  }
+  
+  .custom-input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+  }
+  
+  /* Select dropdown styling */
+  .sort-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.375rem;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  .sort-select:focus {
+    outline: none;
+    border-color: #4a90e2;
+  }
+  
+  /* Card styling */
+  .card {
+    background-color: #ffffff; /* White background for the card */
+    border: 1px solid #eee;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 1rem; /* Space between each card */
+    width: 90%; /* Adjust card width */
+    max-width: 300px; /* Limit maximum card width */
+    height: 100%; /* Adjust card height */
+    max-height: 400px; /* Limit maximum card height */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Image hover effect */
+  .coin-image {
+    transition: transform 0.2s ease;
+  }
+  
+  .coin-image:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Text styling for better contrast */
+  .text-gray-800 {
+    color: #333; /* Darker gray for better contrast */
+  }
+  
+  .text-gray-900 {
+    color: #000; /* Black for maximum contrast */
+  }
+  
+  .text-gray-600 {
+    color: #666; /* Medium gray for descriptions */
+  }
+  
+  /* Padding and margin adjustments */
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .mt-4 {
+    margin-top: 1rem;
+  }
+  
+  /* Flex container for cards */
+  .flex-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Adjust the gap between cards */
+    justify-content: center; /* Center align cards horizontally */
+  }
+  
+
+  
