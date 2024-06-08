@@ -1,11 +1,9 @@
-"use client";
+import React from "react";
+import Home from "../page";
+import Logo from "../components/Logo";
+import Navigation from "../components/Navigation";
 
-import Crypto from "./pages/Crypto";
-import Logo from "./components/Logo";
-import Navigation from "./components/Navigation";
-import Chart from "@/app/chart/page";
-
-export default function Home() {
+const page = () => {
   return (
     <>
       <main
@@ -16,8 +14,10 @@ export default function Home() {
         <div className="w-screen h-screen bg-gray-300 fixed -z-10" />
         <Logo />
         <Navigation />
-        <Crypto />
+        Chart
       </main>
     </>
   );
-}
+};
+
+export default page;

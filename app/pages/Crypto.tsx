@@ -1,12 +1,12 @@
-import React from 'react'
-import TableComponent from '../components/TableComponent'
+import React from "react";
+import TableComponent from "../components/TableComponent";
 
 const Crypto = () => {
   return (
     <section className="w-[80%] h-full flex flex-col mt-16 mb-24 relative">
-    <TableComponent />
-  </section>
-  )
-}
+      <TableComponent />
+    </section>
+  );
+};
 
-export default Crypto
+export default Crypto;
