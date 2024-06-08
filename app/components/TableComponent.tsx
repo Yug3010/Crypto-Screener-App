@@ -20,6 +20,7 @@ const TableComponent = async () => {
   );
   const coins: Crypto[] = await data.json();
 
+  console.log("all coins ==>? ", coins);
   return (
     <div className="flex flex-col mt-9 border border-gray-100 rounded">
       <table className="w-full table-auto">
