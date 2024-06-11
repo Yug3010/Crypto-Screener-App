@@ -24,6 +24,7 @@ interface PriceType {
   prices: Array<[number, number]>;
   total_volumes: Array<[number, number]>;
 }
+
 const defaultPrices: { [key: string]: number } = {
   bitcoin: 30000,
   ethereum: 2000,
@@ -51,10 +52,7 @@ const TableComponent: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&&ids=bitcoin,ethereum,tether,dai,polkadot,solana,dogecoin,tron,avalanche-2&order=market_cap_desc&per_page=${perPage}&page=${page}&price_change_percentage=1h&locale=en&precision=full`,
-          {
-            next: { revalidate: 60 }, // Revalidate every 60 seconds
-          }
+          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${perPage}&page=${page}&price_change_percentage=1h&locale=en&precision=full`
         );
         const data: Crypto[] = await response.json();
         console.log(data);
@@ -72,10 +70,7 @@ const TableComponent: React.FC = () => {
     const vs_currency = "usd";
 
     const chart = await fetch(
-      `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${vs_currency}&days=${days}&interval=daily`,
-      {
-        next: { revalidate: 60 }, // Revalidate every 60 seconds
-      }
+      `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${vs_currency}&days=${days}&interval=daily`
     );
 
     const data: PriceType = await chart.json();
@@ -187,13 +182,11 @@ const TableComponent: React.FC = () => {
             value={page}
             className="sort-select"
           >
-            {Array(10)
-              .fill(null)
-              .map((_, index) => (
-                <option key={index + 1} value={index + 1}>
-                  Page {index + 1}
-                </option>
-              ))}
+            {Array.from({ length: 10 }, (_, index) => (
+              <option key={index + 1} value={index + 1}>
+                Page {index + 1}
+              </option>
+            ))}
           </select>
         </div>
         <div className="flex-cards">
