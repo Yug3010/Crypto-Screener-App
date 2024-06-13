@@ -76,6 +76,10 @@ const TableComponent: React.FC = () => {
     const data: PriceType = await chart.json();
     console.log("chart data => ", data);
 
+
+    
+
+
     const xaxis = [];
     const yaxis = [];
     for (let [date, price] of data.prices) {
@@ -88,6 +92,13 @@ const TableComponent: React.FC = () => {
     }
     setGraphData({ xaxis, yaxis });
   };
+
+  // const trendingdata=async()=>{
+  //   let res=await fetch(`https://pro-api.coingecko.com/api/v3/search/trending`);
+  //   console.log("Trending data is "+res.json());
+  // }
+
+  // trendingdata();
 
   const handleSort = (criteria: string) => {
     if (criteria === sortBy) {
