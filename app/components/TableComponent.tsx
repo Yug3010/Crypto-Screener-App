@@ -66,14 +66,23 @@ const TableComponent: React.FC = () => {
   }, [page, perPage]);
 
   const fetchGraphData = async (id: string) => {
-    const result: any = await fetch(`/api/chart?id=${id}`);
-    const data = await result.json();
+    const days = "30";
+    const vs_currency = "usd";
+
+    const chart = await fetch(
+      `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${vs_currency}&days=${days}&interval=daily`,
+      {
+        next: { revalidate: 60 }, // Revalidate every 60 seconds
+      }
+    );
+
+    const data: PriceType = await chart.json();
 
     console.log("chart data => ", data);
 
     const xaxis = [];
     const yaxis = [];
-    for (let [date, price] of data.data.prices) {
+    for (let [date, price] of data.prices) {
       yaxis.push(moment.unix(date / 1000).format("MM-DD"));
       if (price < 1) {
         xaxis.push(price);

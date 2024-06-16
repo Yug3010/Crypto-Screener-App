@@ -11,6 +11,7 @@ export async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   const { id }: queryProps = req.query;
 
+  console.log("123 ==> ", id);
   const chart = await fetch(
     `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${vs_currency}&days=${days}&interval=daily`,
     {

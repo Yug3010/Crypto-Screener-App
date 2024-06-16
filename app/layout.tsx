@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 // import Nav from "./Components/Nav";
 import Home from "./page";
+import { SessionProvider } from "next-auth/react";
+import { Providers } from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <Home/> */}
-        {children}</body>
+        <Providers>
+          <Home />
+        </Providers>
+      </body>
     </html>
   );
 }
