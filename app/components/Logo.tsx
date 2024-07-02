@@ -8,7 +8,6 @@ import styles from "./Logo.module.css";
 const Logo = () => {
   const session = useSession();
 
-  console.log("Sesstion -> ", session);
   return (
     <div className={styles.logoContainer}>
       <Link href="/" className={styles.logoLink}>

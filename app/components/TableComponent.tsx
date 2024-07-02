@@ -5,6 +5,9 @@ import "./TableComponent.css"; // Ensure correct import path
 import Modal from "./Modal";
 import moment from "moment";
 import LineChart from "./LineChart";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSession } from "next-auth/react";
 
 interface Crypto {
   id: string;
@@ -48,6 +51,10 @@ const TableComponent: React.FC = () => {
     yaxis: [],
   });
 
+  const [likedAssets, setLikedAssets] = useState<string[]>([]);
+
+  const session = useSession();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -55,7 +62,7 @@ const TableComponent: React.FC = () => {
           `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${perPage}&page=${page}&price_change_percentage=1h&locale=en&precision=full`
         );
         const data: Crypto[] = await response.json();
-        console.log(data);
+        // console.log(data);
         setCoins(data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -65,6 +72,16 @@ const TableComponent: React.FC = () => {
     fetchData();
   }, [page, perPage]);
 
+  useEffect(() => {
+    if (session?.data) {
+      const assets = localStorage.getItem(session?.data?.user?.email!);
+      if (assets) {
+        setLikedAssets(JSON.parse(assets));
+      }
+
+      console.log("liked assets = . ", likedAssets);
+    }
+  }, [session]);
   const fetchGraphData = async (id: string) => {
     const days = "30";
     const vs_currency = "usd";
@@ -75,10 +92,6 @@ const TableComponent: React.FC = () => {
 
     const data: PriceType = await chart.json();
     console.log("chart data => ", data);
-
-
-    
-
 
     const xaxis = [];
     const yaxis = [];
@@ -158,6 +171,30 @@ const TableComponent: React.FC = () => {
     setModalOpen(false);
   }
 
+  async function handleFavClick(coinId: string, isFav: number) {
+    if (session.data) {
+      const email = session?.data?.user?.email!;
+
+      const existingValues = localStorage.getItem(email);
+      let valuesToSet: string[] = [];
+
+      if (existingValues) {
+        valuesToSet = JSON.parse(existingValues) as string[];
+      }
+
+      if (isFav === 1) {
+        if (!valuesToSet.includes(coinId)) {
+          valuesToSet.push(coinId);
+        }
+      } else if (isFav === 0) {
+        valuesToSet = valuesToSet.filter((id) => id !== coinId);
+      }
+
+      localStorage.setItem(email, JSON.stringify(valuesToSet));
+      setLikedAssets(valuesToSet);
+    }
+  }
+
   return (
     <>
       <div className="container mx-auto p-4">
@@ -202,15 +239,24 @@ const TableComponent: React.FC = () => {
         </div>
         <div className="flex-cards">
           {filteredCoins.map((coin) => (
-            <div
-              key={coin.id}
-              className="card rounded-lg shadow-md p-4"
-              onClick={() => handleCardClick(coin.id)}
-            >
+            <div key={coin.id} className="card rounded-lg shadow-md p-4">
+              {likedAssets.includes(coin.id) ? (
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  style={{ color: "red" }}
+                  onClick={() => handleFavClick(coin.id, 0)}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  onClick={() => handleFavClick(coin.id, 1)}
+                />
+              )}
               <img
                 src={coin.image}
                 alt={coin.name}
                 className="coin-image w-12 h-12 mx-auto mb-4"
+                onClick={() => handleCardClick(coin.id)}
               />
               <div className="text-center font-semibold text-lg text-gray-800">
                 {coin.name}
