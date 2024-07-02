@@ -1,0 +1,49 @@
+.logoContainer {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.logoLink {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  color: rgb(20 255 236);
+  margin-right: 1rem;
+}
+
+.logoImage {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.logoText {
+  font-weight: bold;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  background-color: rgb(20 255 236);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.button:hover {
+  background-color: #008c9e;
+}
+
+.userName {
+  margin-left: 0.5rem;
+  font-weight: bold;
+}
