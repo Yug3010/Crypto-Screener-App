@@ -58,4 +58,4 @@ including their charts and data.
 ![Saved 2](Screenshots/Saved2.png)
 
 ### Video
-![Video](Screenshots/video.mkv)
+https://drive.google.com/file/d/1TkJYwRJR9Uw7NxLjrqYhddUAchw_FcNU/view?usp=sharing
