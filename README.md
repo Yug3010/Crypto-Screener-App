@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Crypto Screener App
+Fully featured Crypto Screener application that uses a Crypto API provided by CoinGecko. This
+application will allow you to search, sort, and view details about various cryptocurrencies,
+including their charts and data.
 
-First, run the development server:
+## Deployed Production Link
+- https://crypto-screener-app-77re.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
+- Home Page (Yug, Jay, Darshan)
+- Trending Page (vasuki)
+- Saved Page (Jay, Simranjit)
+- Navbar (Simranjit)
+- Login (Jay)
+- Sort by Name, Price, Volume, Market Cap (Yug, Vasuki)
+- Pagination (Yug, Darshan)
+- Individual Coin graph (Jay, Yug)
+- Search Functionality (Yug)
+- UI Design (Simranjit, Darshan, Vasuki)
+- Bug Fixing (Jay, Yug, Vasuki, Simranjit, Darshan)
+- Deployment (Darshan, Vasuki)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Note
+- We have used CoinGecko API for our project. CoinGecko has implemented rate limit in the API which is causing problem in retrieving data from it sometimes. 
+- Also, Saved Functionality is not working in deployed environment because we are signing in user with google account. So we are attaching a video of working Functionality in local machine.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Screenshots
+### Home Page
+![Home Page](Screenshots/Home.png)
 
-## Learn More
+### Trending Page
+![Trending Page](Screenshots/Trending.png)
 
-To learn more about Next.js, take a look at the following resources:
+### Chart
+![Chart](Screenshots/Chart.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Filters
+![Filters](Screenshots/Filter.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Pagination 1
+![Pagination 1](Screenshots/pagination1.png)
 
-## Deploy on Vercel
+### Pagination 2
+![Pagination 2](Screenshots/pagination2.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Search
+![Search](Screenshots/Search.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Login
+![Login](Screenshots/LogIn1.png)
+
+### Saved 1
+![Saved 1](Screenshots/Saved1.png)
+
+### Saved 2
+![Saved 2](Screenshots/Saved2.png)
