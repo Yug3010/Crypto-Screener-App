@@ -27,3 +27,32 @@ including their charts and data.
 - Also, Saved Functionality is not working in deployed environment because we are signing in user with google account. So we are attaching a video of working Functionality in local machine.
 
 ## Screenshots
+### Home Page
+![Home Page](Screenshots/Home.png)
+
+### Trending Page
+![Trending Page](Screenshots/Trending.png)
+
+### Chart
+![Chart](Screenshots/Chart.png)
+
+### Filters
+![Filters](Screenshots/Filter.png)
+
+### Pagination 1
+![Pagination 1](Screenshots/pagination1.png)
+
+### Pagination 2
+![Pagination 2](Screenshots/pagination2.png)
+
+### Search
+![Search](Screenshots/Search.png)
+
+### Login
+![Login](Screenshots/LogIn1.png)
+
+### Saved 1
+![Saved 1](Screenshots/Saved1.png)
+
+### Saved 2
+![Saved 2](Screenshots/Saved2.png)
